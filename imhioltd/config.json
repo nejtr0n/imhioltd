@@ -1,0 +1,6 @@
+{
+  "migration" : {
+    "migrations": "database/migrations",
+    "config": "config/database.ini"
+  }
+}

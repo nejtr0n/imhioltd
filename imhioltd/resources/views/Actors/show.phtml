@@ -1,0 +1,53 @@
+<h2>Актёр {{actor.name}}</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Аттрибут</th>
+        <th scope="col">Значение</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>id</td>
+            <td>{{ actor.getId() }}</td>
+        </tr>
+        <tr>
+            <td>Имя</td>
+            <td>{{ actor.getName()|e }}</td>
+        </tr>
+        <tr>
+            <td>Псевдонимы</td>
+            <td>{{ actor.getAliases().toArray()|arrayColumn('name')|join(', ') }}</td>
+        </tr>
+        <tr>
+            <td>Дата рождения</td>
+            <td>{{ actor.getBirthday()|dateFormat('d.m.Y') }}</td>
+        </tr>
+        <tr>
+            <td>Место рождения</td>
+            <td>{{ actor.getBirthPlace()|e }}</td>
+        </tr>
+        <tr>
+            <td>Страна проживания</td>
+            <td>{{ actor.getCountry().getName()|e }}</td>
+        </tr>
+        <tr>
+            <td>Карьерный статус</td>
+            <td>{{ actor.getCareerStatus().getName()|e }}</td>
+        </tr>
+        <tr>
+            <td>Цвет глаз</td>
+            <td>{{ actor.getEyesColor()|e }}</td>
+        </tr>
+        <tr>
+            <td>Цвет волос</td>
+            <td>{{ actor.getHairColor()|e }}</td>
+        </tr>
+        <tr>
+            <td>Размеры</td>
+            <td>{{ actor.getBoobsSize()|e }} - {{ actor.getWaistSize()|e }} - {{ actor.getAssSize()|e }}</td>
+        </tr>
+
+
+    </tbody>
+</table>

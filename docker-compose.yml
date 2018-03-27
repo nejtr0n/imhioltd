@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+  front:
+    build:
+      context: infrastructure/frontend
+    ports:
+      - 80:80
+    volumes:
+      - ./imhioltd:/var/www/html
+
+  db:
+    build:
+      context: infrastructure/postgres
+    volumes:
+      - ./infrastructure/postgres/dumps:/dumps
+      - ./infrastructure/postgres/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=imhioltd
+      - POSTGRES_PASSWORD=imhioltd
+      - POSTGRES_DB=imhioltd
+
+  imhioltd:
+    build:
+      context: infrastructure/tz
+    volumes:
+      - ./imhioltd:/var/www/html

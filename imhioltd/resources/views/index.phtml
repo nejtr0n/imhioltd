@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {{ get_title() }}
+    {{ stylesheet_link('css/main.css') }}
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container">
+        <h1>Phalcon example app</h1>
+    </div>
+</header>
+<main role="main" class="content">
+    <div class="container">
+        {% if router.getRewriteUri() !== '/' %}
+            <ol class="breadcrumb rounded">
+                {{ breadcrumbs.output() }}
+            </ol>
+        {% endif %}
+        {{ content() }}
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">© Jimmy Nejtr0n</span>
+    </div>
+</footer>
+{{ javascript_include('js/bundle.js') }}
+</body>
+</html>
